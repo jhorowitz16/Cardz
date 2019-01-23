@@ -1,0 +1,8 @@
+.hand {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  background: beige;
+  width: 500px;
+}
