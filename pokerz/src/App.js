@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import Hand from './components/Hand.jsx'
 import './App.css';
-import importAll from './utils.js';
+import {importAll} from './utils.js';
 
 class App extends Component {
 

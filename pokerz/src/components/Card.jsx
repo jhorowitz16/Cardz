@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import '../css/card.css'
+import {charToSuit} from '../utils.js';
 
 class Card extends Component {
 
@@ -18,7 +19,6 @@ class Card extends Component {
 
 
   getCardImg(suit, value) {
-
     return "temp";
   }
 
