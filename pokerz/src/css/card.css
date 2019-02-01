@@ -2,8 +2,16 @@
   width: 100px;
   height: 150px;
   color: black;
-  background: white;
+  background: url("../images/cards/back.png");
   border: 5px solid;
   border-color: black;
   border-radius: 20px;
+}
+
+.card__front {
+  display: none;
+}
+
+.card__back {
+  display: block;
 }

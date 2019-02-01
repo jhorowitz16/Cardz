@@ -7,11 +7,11 @@ import {importAll} from './utils.js';
 class App extends Component {
 
   componentDidMount() {
-    window.AppState = {};
     window.AppState.cards = importAll(require.context('./images/cards/', false, /\.(png|jpe?g|svg)$/));
   }
 
   render() {
+    window.AppState = {};
     return (
       <div className="App">
         <header className="App-header">

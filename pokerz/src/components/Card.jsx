@@ -12,14 +12,24 @@ class Card extends Component {
     value: PropTypes.number,
   };
 
+  static defaultProps = {
+    suit: 'c',
+    value: 2,
+  }
+
   constructor(props) {
     super(props);
     this.state = {};
   }
 
+  test() {
+      debugger;
+  }
 
-  getCardImg(suit, value) {
-    return "temp";
+  getCardImg() {
+    const filename = this.props.value + "_of_" + charToSuit(this.props.suit) + ".png";
+    const image = window.AppState.cards[filename];
+    debugger;
   }
 
   shouldComponentUpdate(nextState) {
@@ -27,14 +37,20 @@ class Card extends Component {
   }
 
   render() {
+    const { suit, value } = this.props;
+    // const imgSource = this.getCardImg(suit, value);
+
+    const onCardClick = this.getCardImg.bind(this);
+
     return (
-      <div className='card'>
-        I am a card.
+      <div className='card' onClick={onCardClick}>
+        <div className='card__front'>
+          I am a card.
 
-        { this.props.suit }
+          { this.props.suit }
 
-        { this.props.number}
-        <img src={"test"} alt=" "/>
+          { this.props.number}
+        </div>
       </div>
     );
   }
