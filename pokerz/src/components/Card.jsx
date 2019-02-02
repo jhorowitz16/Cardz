@@ -22,7 +22,7 @@ class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: back,
+      image: null,
       filename: ''
     };
   }
@@ -61,6 +61,10 @@ class Card extends Component {
 
     return (
       <div className='card' onClick={onCardClick}>
+        <img
+          className='card__img--back'
+          src={back}
+          alt="back"/>
         <img
           className='card__img'
           src={this.state.image}
