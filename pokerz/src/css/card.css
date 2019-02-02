@@ -2,10 +2,7 @@
   width: 100px;
   height: 150px;
   color: black;
-  background: url("../images/cards/back.png");
-  border: 5px solid;
-  border-color: black;
-  border-radius: 20px;
+  /* background: url("../images/cards/back.png"); */
 }
 
 .card__front {
@@ -14,4 +11,11 @@
 
 .card__back {
   display: block;
+}
+
+.card__img {
+  width: 100px;
+  border: 5px solid;
+  border-color: black;
+  border-radius: 20px;
 }

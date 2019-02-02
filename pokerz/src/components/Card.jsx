@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import '../css/card.css'
 import {charToSuit} from '../utils.js';
 
+import back from '../images/cards/back.png';
+
 class Card extends Component {
 
   // for now define suit to be a single character string
@@ -19,38 +21,50 @@ class Card extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
-  }
-
-  test() {
-      debugger;
-  }
-
-  getCardImg() {
-    const filename = this.props.value + "_of_" + charToSuit(this.props.suit) + ".png";
-    const image = window.AppState.cards[filename];
-    debugger;
+    this.state = {
+      image: back,
+      filename: ''
+    };
   }
 
   shouldComponentUpdate(nextState) {
-    return false;
+    if (this.state.filename !== nextState.filename)
+      debugger;
+    return this.state.filename !== nextState.filename;
   }
 
-  render() {
-    const { suit, value } = this.props;
-    // const imgSource = this.getCardImg(suit, value);
+  getCardImg() {
+    const newFilename = this.props.value + "_of_" + charToSuit(this.props.suit) + ".png";
+    this.setState({
+      filename: newFilename,
+      image: window.AppState.cards[newFilename]
+    });
+  }
 
-    const onCardClick = this.getCardImg.bind(this);
-
+  renderCardFront() {
     return (
-      <div className='card' onClick={onCardClick}>
-        <div className='card__front'>
+      <div className=''>
+          <img src={this.image} alt={this.filename}/>
           I am a card.
 
           { this.props.suit }
 
           { this.props.number}
         </div>
+      );
+  }
+
+  render() {
+    const { suit, value } = this.props;
+
+    const onCardClick = this.getCardImg.bind(this);
+
+    return (
+      <div className='card' onClick={onCardClick}>
+        <img
+          className='card__img'
+          src={this.state.image}
+          alt={this.state.filename}/>
       </div>
     );
   }
