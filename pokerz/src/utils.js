@@ -18,3 +18,19 @@ export function charToSuit(char) {
       return '';
   }
 }
+
+// convert a value to the text that appears in the filename
+export function valueToString(value) {
+  switch (value) {
+    case 11:
+      return 'jack';
+    case 12:
+      return 'queen';
+    case 13:
+      return 'king';
+    case 14:
+      return 'ace';
+    default:
+      return value.toString();
+  }
+}

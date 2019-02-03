@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import '../css/card.css'
-import {charToSuit} from '../utils.js';
+import {charToSuit, valueToString} from '../utils.js';
 
 import back from '../images/cards/back.png';
 
@@ -34,7 +34,9 @@ class Card extends Component {
   }
 
   getCardImg() {
-    const newFilename = this.props.value + "_of_" + charToSuit(this.props.suit) + ".png";
+    const valueString = valueToString(this.props.value);
+    const newFilename = valueString + "_of_" + charToSuit(this.props.suit) + ".png";
+    debugger;
     this.setState({
       filename: newFilename,
       image: window.AppState.cards[newFilename]
@@ -49,7 +51,7 @@ class Card extends Component {
 
           { this.props.suit }
 
-          { this.props.number}
+          { this.props.value}
         </div>
       );
   }

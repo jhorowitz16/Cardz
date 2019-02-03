@@ -6,9 +6,9 @@ class App extends Component {
   render() {
     return (
       <div className="hand">
-          <Card suit="c" number="2"/>
-          <Card/>
-          <Card/>
+          <Card suit="c" value={2}/>
+          <Card suit="d" value={11}/>
+          <Card suit="s" value={13}/>
       </div>
     );
   }
