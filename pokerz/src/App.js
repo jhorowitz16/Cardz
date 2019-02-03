@@ -4,10 +4,13 @@ import Hand from './components/Hand.jsx'
 import './App.css';
 import {importAll} from './utils.js';
 
+import Deck from './Deck';
+
 class App extends Component {
 
   componentDidMount() {
     window.AppState.cards = importAll(require.context('./images/cards/', false, /\.(png|jpe?g|svg)$/));
+    const d = new Deck(100);
   }
 
   render() {
