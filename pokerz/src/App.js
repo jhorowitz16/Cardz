@@ -10,7 +10,7 @@ class App extends Component {
 
   componentDidMount() {
     window.AppState.cards = importAll(require.context('./images/cards/', false, /\.(png|jpe?g|svg)$/));
-    const d = new Deck(100);
+    const d = new Deck(1);
   }
 
   render() {

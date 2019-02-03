@@ -13,10 +13,22 @@ class Deck {
       }
     });
     this.cards = cards;
+    console.log("before shuffling: " + this.cards);
+    this.shuffle();
+    this.cards = cards;
+    console.log("after shuffling: " + this.cards);
   }
 
   shuffle() {
-    
+    const deck = this.cards;
+
+    let m = deck.length, i;
+    while (m) {
+      i = Math.floor(this.random() * m--);
+      [deck[m], deck[i]] = [deck[i], deck[m]];
+    }
+
+    this.cards = deck;
   }
 
 
@@ -24,6 +36,7 @@ class Deck {
     var x = Math.sin(this.seed++) * 10000;
     const rand = x - Math.floor(x);
     console.log("seed: " + this.seed + " ==> " + rand);
+    return rand;
   }
 }
 
