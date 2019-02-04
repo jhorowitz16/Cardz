@@ -14,12 +14,9 @@ class App extends Component {
   }
 
   renderCards() {
-    debugger;
-    const cards = this.props.cards.map((card) => {
+    return this.props.cards.map((card) => {
       return (<Card suit={card[0]} value={card[1]}/>);
     });
-    debugger;
-    return cards;
   }
 
   render() {

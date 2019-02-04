@@ -42,7 +42,7 @@ class Deck {
 
   drawCard() {
     const card = this.cards.pop();
-    debugger;
+    console.log("dealt: " + card)
     return card;
   }
 }
