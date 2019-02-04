@@ -2,13 +2,14 @@
 
 class Deck {
   constructor(seed) {
-    this.seed = seed
+    this.originalSeed = seed;
+    this.counterSeed = seed
     const suits = ['c', 'd', 'h', 's'];
     const cards = [];
     suits.forEach((suit) => {
       var i = 2;
       while (i < 15) {
-        cards.push(suit + i);
+        cards.push([suit, i]);
         i += 1;
       }
     });
@@ -21,22 +22,28 @@ class Deck {
 
   shuffle() {
     const deck = this.cards;
-
     let m = deck.length, i;
     while (m) {
       i = Math.floor(this.random() * m--);
       [deck[m], deck[i]] = [deck[i], deck[m]];
     }
-
     this.cards = deck;
   }
 
+  /*
+  first cards for seed 1 should be:
+    d5,d9,c9,c14,s3,h10
+  */
 
   random() {
-    var x = Math.sin(this.seed++) * 10000;
-    const rand = x - Math.floor(x);
-    console.log("seed: " + this.seed + " ==> " + rand);
-    return rand;
+    const sinSeed = Math.sin(this.counterSeed++) * 10000;
+    return sinSeed - Math.floor(sinSeed);
+  }
+
+  drawCard() {
+    const card = this.cards.pop();
+    debugger;
+    return card;
   }
 }
 
