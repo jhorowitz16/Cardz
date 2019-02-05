@@ -40,19 +40,6 @@ class Card extends Component {
     });
   }
 
-  renderCardFront() {
-    return (
-      <div className=''>
-          <img src={this.image} alt={this.filename}/>
-          I am a card.
-
-          { this.props.suit }
-
-          { this.props.value}
-        </div>
-      );
-  }
-
   render() {
     const { suit, value } = this.props;
 
