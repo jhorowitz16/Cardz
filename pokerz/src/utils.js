@@ -34,3 +34,35 @@ export function valueToString(value) {
       return value.toString();
   }
 }
+
+// convert a value to the string the solver wants
+export function valueToShortString(value) {
+  switch (value) {
+    case 10:
+      return 'T';
+    case 11:
+      return 'J';
+    case 12:
+      return 'Q';
+    case 13:
+      return 'K';
+    case 14:
+      return 'A';
+    default:
+      return value.toString();
+  }
+}
+
+// feed into poker solver from a hand object
+export function scoreHand(hand, community) {
+  const combined = hand.concat(community);
+  const solver = require('pokersolver').Hand;
+
+  const toSolveArray = combined.map((card) => {
+    const value = valueToShortString(card[1]);
+    const suit = card[0];
+    return value + suit;
+  });
+
+  return solver.solve(toSolveArray);
+}

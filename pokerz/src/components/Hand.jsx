@@ -7,10 +7,13 @@ class App extends Component {
 
   static propTypes = {
     cards: PropTypes.array,
+    scoreHand: PropTypes.function,
   };
 
   static defaultProps = {
     cards: [],
+    isCommunity: false,
+    scoreHand: () => {debugger;},
   }
 
   renderCards() {
@@ -19,10 +22,22 @@ class App extends Component {
     });
   }
 
+  // don't show the button on a community hand
+  renderScoreButton() {
+    const onScoreClick = this.props.scoreHand.bind(this);
+
+    if (!this.props.isCommunity) {
+      return (<button onClick={onScoreClick}>Score</button>);
+    } else {
+      return null;
+    }
+  }
+
   render() {
     return (
       <div className="hand">
           {this.renderCards()}
+          {this.renderScoreButton()}
       </div>
     );
   }

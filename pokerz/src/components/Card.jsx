@@ -42,7 +42,6 @@ class Card extends Component {
 
   render() {
     const { suit, value } = this.props;
-
     const onCardClick = this.getCardImg.bind(this);
 
     return (

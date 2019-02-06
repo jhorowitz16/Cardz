@@ -4,12 +4,16 @@ import Hand from './components/Hand.jsx'
 import './App.css';
 import {importAll} from './utils.js';
 import Deck from './Deck';
+import {scoreHand} from './utils.js';
+
+
+
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = this.dealCards();
+    this.state = this.buildState();
   }
 
   shouldComponentUpdate(nextState) {
@@ -21,7 +25,7 @@ class App extends Component {
     window.AppState.cards = importAll(require.context('./images/cards/', false, /\.(png|jpe?g|svg)$/));
   }
 
-  dealCards() {
+  buildState() {
     const deck = new Deck(12);
     const community = [deck.drawCard(), deck.drawCard(), deck.drawCard(), deck.drawCard(), deck.drawCard()];
     const handOne = [deck.drawCard(), deck.drawCard()];
@@ -31,17 +35,30 @@ class App extends Component {
       deck: deck,
       handOne: handOne,
       handTwo: handTwo,
+      solver: require('pokersolver').Hand,
     };
+  }
+
+  scoreOne() {
+    const solved = scoreHand(this.state.handOne, this.state.community);
+    alert(solved.descr);
+  }
+
+  scoreTwo() {
+    const solved = scoreHand(this.state.handTwo, this.state.community);
+    alert(solved.descr);
   }
 
   render() {
     window.AppState = {};
+    const onHandOneClick = this.scoreOne.bind(this);
+    const onHandTwoClick = this.scoreTwo.bind(this);
     return (
       <div className="App">
         <header className="App-header">
-          <Hand cards={this.state.handOne}/>
-          <Hand cards={this.state.community}/>
-          <Hand cards={this.state.handTwo}/>
+          <Hand cards={this.state.handOne} scoreHand={onHandOneClick}/>
+          <Hand cards={this.state.community} isCommunity/>
+          <Hand cards={this.state.handTwo} scoreHand={onHandTwoClick}/>
         </header>
       </div>
     );
