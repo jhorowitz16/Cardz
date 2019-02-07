@@ -29,7 +29,7 @@ class App extends Component {
     if (!this.props.isCommunity) {
       return (<button onClick={onScoreClick}>Score</button>);
     } else {
-      return null;
+      return (<button class="hand__button--community" onClick={onScoreClick}>Resolve Game</button>);
     }
   }
 

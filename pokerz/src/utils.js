@@ -53,16 +53,27 @@ export function valueToShortString(value) {
   }
 }
 
+export function encodeCards(hand) {
+  return hand.map((card) => {
+      const value = valueToShortString(card[1]);
+      const suit = card[0];
+      return value + suit;
+    });
+}
+
 // feed into poker solver from a hand object
 export function scoreHand(hand, community) {
   const combined = hand.concat(community);
   const solver = require('pokersolver').Hand;
-
-  const toSolveArray = combined.map((card) => {
-    const value = valueToShortString(card[1]);
-    const suit = card[0];
-    return value + suit;
-  });
-
+  const toSolveArray = encodeCards(combined);
   return solver.solve(toSolveArray);
+}
+
+export function resolveGame(handOne, handTwo, community) {
+  const solver = require('pokersolver').Hand;
+  const solvedOne = solver.solve(encodeCards(handOne.concat(community)));
+  const solvedTwo = solver.solve(encodeCards(handTwo.concat(community)));
+  const winner = solver.winners([solvedOne, solvedTwo]);
+  debugger;
+  alert(winner);
 }
