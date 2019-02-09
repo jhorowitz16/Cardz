@@ -27,17 +27,21 @@ class App extends Component {
     const onScoreClick = this.props.scoreHand.bind(this);
 
     if (!this.props.isCommunity) {
-      return (<button onClick={onScoreClick}>Score</button>);
+      return (<button class="hand__button--hand" onClick={onScoreClick}>Score</button>);
     } else {
-      return (<button class="hand__button--community" onClick={onScoreClick}>Resolve Game</button>);
+      return (<button class="hand__button--hand hand__button--community" onClick={onScoreClick}>Resolve Game</button>);
     }
   }
 
   render() {
     return (
       <div className="hand">
-          {this.renderCards()}
-          {this.renderScoreButton()}
+        <div className="hand__cards">
+            {this.renderCards()}
+        </div>
+        <div className="hand__button">
+            {this.renderScoreButton()}
+        </div>
       </div>
     );
   }

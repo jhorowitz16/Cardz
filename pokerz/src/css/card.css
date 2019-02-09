@@ -4,6 +4,7 @@
   color: black;
   position: relative;
   /* background: url("../images/cards/back.png"); */
+  margin: 10px;
 }
 
 .card__front {
