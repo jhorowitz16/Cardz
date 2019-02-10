@@ -7,6 +7,16 @@
   margin: 10px;
 }
 
+.card--winner {
+  margin-bottom: 30px;
+  animation: winner-jump 2s;
+}
+
+@keyframes winner-jump {
+  from {margin-bottom: 0px;}
+  to {margin-bottom: 30px;}
+}
+
 .card__front {
   display: none;
 }

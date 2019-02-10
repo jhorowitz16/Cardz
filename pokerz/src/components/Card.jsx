@@ -10,11 +10,13 @@ class Card extends Component {
   // for now define suit to be a single character string
   // value is an integer 2 to 14 inclusive
   static propTypes = {
+    isWinner: PropTypes.boolean,
     suit: PropTypes.string,
     value: PropTypes.number,
   };
 
   static defaultProps = {
+    isWinner: false,
     suit: 'c',
     value: 2,
   }
@@ -27,8 +29,9 @@ class Card extends Component {
     };
   }
 
-  shouldComponentUpdate(nextState) {
-    return this.state.filename !== nextState.filename;
+  shouldComponentUpdate(nextState, nextProps) {
+    return this.state.filename !== nextState.filename ||
+      this.props.isWinner !== nextProps.isWinner;
   }
 
   getCardImg() {
@@ -41,11 +44,13 @@ class Card extends Component {
   }
 
   render() {
-    const { suit, value } = this.props;
+    const {isWinner, suit, value } = this.props;
     const onCardClick = this.getCardImg.bind(this);
 
+    const cardClasses = isWinner ? 'card card--winner': 'card';
+
     return (
-      <div className='card' onClick={onCardClick}>
+      <div className={cardClasses} onClick={onCardClick}>
         <img
           className='card__img--back'
           src={back}

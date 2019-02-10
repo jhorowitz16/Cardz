@@ -17,8 +17,11 @@ class App extends Component {
   }
 
   renderCards() {
+
+    const isWinner = true;
+
     return this.props.cards.map((card) => {
-      return (<Card suit={card[0]} value={card[1]}/>);
+      return (<Card isWinner={isWinner} suit={card[0]} value={card[1]}/>);
     });
   }
 
