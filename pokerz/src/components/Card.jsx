@@ -44,10 +44,9 @@ class Card extends Component {
   }
 
   render() {
-    const {isWinner, suit, value } = this.props;
     const onCardClick = this.getCardImg.bind(this);
 
-    const cardClasses = isWinner ? 'card card--winner': 'card';
+    const cardClasses = this.props.isWinner ? 'card card--winner': 'card';
 
     return (
       <div className={cardClasses} onClick={onCardClick}>

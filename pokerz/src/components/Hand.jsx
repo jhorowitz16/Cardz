@@ -7,19 +7,18 @@ class App extends Component {
 
   static propTypes = {
     cards: PropTypes.array,
-    scoreHand: PropTypes.function,
+    winners: PropTypes.array,
   };
 
   static defaultProps = {
     cards: [],
     isCommunity: false,
-    scoreHand: () => {debugger;},
+    winners: [],
   }
 
   renderCards() {
-
+    debugger;
     const isWinner = true;
-
     return this.props.cards.map((card) => {
       return (<Card isWinner={isWinner} suit={card[0]} value={card[1]}/>);
     });
@@ -30,9 +29,9 @@ class App extends Component {
     const onScoreClick = this.props.scoreHand.bind(this);
 
     if (!this.props.isCommunity) {
-      return (<button class="hand__button--hand" onClick={onScoreClick}>Score</button>);
+      return (<button className="hand__button--hand" onClick={onScoreClick}>Score</button>);
     } else {
-      return (<button class="hand__button--hand hand__button--community" onClick={onScoreClick}>Resolve Game</button>);
+      return (<button className="hand__button--hand hand__button--community" onClick={onScoreClick}>Resolve Game</button>);
     }
   }
 

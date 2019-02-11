@@ -74,6 +74,11 @@ export function resolveGame(handOne, handTwo, community) {
   const solvedOne = solver.solve(encodeCards(handOne.concat(community)));
   const solvedTwo = solver.solve(encodeCards(handTwo.concat(community)));
   const winner = solver.winners([solvedOne, solvedTwo]);
-  debugger;
-  alert(winner);
+  return winner;
+}
+
+// create a set of cards that are winners
+export function parseWinnerObj(winnerObj) {
+  const winnerSet = new Set(winnerObj[0].cards);
+  return winnerSet;
 }

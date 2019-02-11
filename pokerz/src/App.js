@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import Hand from './components/Hand.jsx'
 import './App.css';
 import {importAll} from './utils.js';
 import Deck from './Deck';
-import {scoreHand, resolveGame} from './utils.js';
+import {parseWinnerObj, scoreHand, resolveGame} from './utils.js';
 
 
 class App extends Component {
@@ -28,11 +27,16 @@ class App extends Component {
     const community = [deck.drawCard(), deck.drawCard(), deck.drawCard(), deck.drawCard(), deck.drawCard()];
     const handOne = [deck.drawCard(), deck.drawCard()];
     const handTwo = [deck.drawCard(), deck.drawCard()];
+    const winnerObj = resolveGame(handOne, handTwo, community);
+    const winners = parseWinnerObj(winnerObj);
+    debugger;
+
     return {
       community: community,
       deck: deck,
       handOne: handOne,
       handTwo: handTwo,
+      winners: winners,
     };
   }
 
@@ -60,9 +64,22 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Hand cards={this.state.handOne} scoreHand={onHandOneClick}/>
-          <Hand cards={this.state.community} isCommunity scoreHand={onResolveGame}/>
-          <Hand cards={this.state.handTwo} scoreHand={onHandTwoClick}/>
+          <Hand
+            cards={this.state.handOne}
+            scoreHand={onHandOneClick}
+            winners={this.state.winners}
+          />
+          <Hand
+            cards={this.state.community}
+            isCommunity
+            scoreHand={onResolveGame}
+            winners={this.state.winners}
+          />
+          <Hand
+            cards={this.state.handTwo}
+            scoreHand={onHandTwoClick}
+            winners={this.state.winners}
+          />
         </header>
       </div>
     );
