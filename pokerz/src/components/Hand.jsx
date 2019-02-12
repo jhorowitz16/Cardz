@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Card from './Card.jsx'
 import '../css/hand.css';
 
+import {valueToShortString} from '../utils.js';
+
 class App extends Component {
 
   static propTypes = {
@@ -17,9 +19,14 @@ class App extends Component {
   }
 
   renderCards() {
-    debugger;
-    const isWinner = true;
+    const winners = this.props.winners;
     return this.props.cards.map((card) => {
+      const stringRep = card[0] + "," + valueToShortString(card[1]);
+      console.log(stringRep);
+      const isWinner = winners.includes(stringRep);
+      if (isWinner) {
+        debugger;
+      }
       return (<Card isWinner={isWinner} suit={card[0]} value={card[1]}/>);
     });
   }

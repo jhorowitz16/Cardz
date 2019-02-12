@@ -23,13 +23,12 @@ class App extends Component {
   }
 
   buildState() {
-    const deck = new Deck(16);
+    const deck = new Deck(1600);
     const community = [deck.drawCard(), deck.drawCard(), deck.drawCard(), deck.drawCard(), deck.drawCard()];
     const handOne = [deck.drawCard(), deck.drawCard()];
     const handTwo = [deck.drawCard(), deck.drawCard()];
     const winnerObj = resolveGame(handOne, handTwo, community);
     const winners = parseWinnerObj(winnerObj);
-    debugger;
 
     return {
       community: community,

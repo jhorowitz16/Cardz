@@ -77,8 +77,10 @@ export function resolveGame(handOne, handTwo, community) {
   return winner;
 }
 
-// create a set of cards that are winners
+// create a list of card tuples that are winners
+// suit then value
 export function parseWinnerObj(winnerObj) {
-  const winnerSet = new Set(winnerObj[0].cards);
-  return winnerSet;
+  return winnerObj[0].cards.map((card) => {
+    return [card.suit, card.value].toString();
+  });
 }
