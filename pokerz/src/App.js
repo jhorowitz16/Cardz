@@ -15,7 +15,8 @@ class App extends Component {
 
   shouldComponentUpdate(nextState) {
     return this.state.handOne !== nextState.filename ||
-      this.state.handTwo !== nextState.handTwo;
+      this.state.handTwo !== nextState.handTwo ||
+      this.state.winners !== nextState.winners;
   }
 
   componentDidMount() {
@@ -27,8 +28,7 @@ class App extends Component {
     const community = [deck.drawCard(), deck.drawCard(), deck.drawCard(), deck.drawCard(), deck.drawCard()];
     const handOne = [deck.drawCard(), deck.drawCard()];
     const handTwo = [deck.drawCard(), deck.drawCard()];
-    const winnerObj = resolveGame(handOne, handTwo, community);
-    const winners = parseWinnerObj(winnerObj);
+    const winners = [];
 
     return {
       community: community,
@@ -52,7 +52,10 @@ class App extends Component {
   }
 
   resolveGame() {
-    return resolveGame(this.state.handOne, this.state.handTwo, this.state.community);
+    const resolved = resolveGame(this.state.handOne, this.state.handTwo, this.state.community);
+    this.setState({
+      winners: parseWinnerObj(resolved)
+    });
   }
 
   render() {
