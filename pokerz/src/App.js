@@ -4,6 +4,8 @@ import './App.css';
 import {importAll} from './utils.js';
 import Deck from './Deck';
 import {parseWinnerObj, scoreHand, resolveGame} from './utils.js';
+import {BrowserRouter, Route} from 'react-router-dom';
+
 
 
 class App extends Component {
@@ -64,26 +66,38 @@ class App extends Component {
     const onHandTwoClick = this.scoreTwo.bind(this);
     const onResolveGame = this.resolveGame.bind(this);
     return (
-      <div className="App">
-        <header className="App-header">
-          <Hand
-            cards={this.state.handOne}
-            scoreHand={onHandOneClick}
-            winners={this.state.winners}
-          />
-          <Hand
-            cards={this.state.community}
-            isCommunity
-            scoreHand={onResolveGame}
-            winners={this.state.winners}
-          />
-          <Hand
-            cards={this.state.handTwo}
-            scoreHand={onHandTwoClick}
-            winners={this.state.winners}
-          />
-        </header>
-      </div>
+      <BrowserRouter>
+        <div>
+          <Route exact={true} path='/board' render={() => (
+            <div className="App">
+              <header className="App-header">
+                <Hand
+                  cards={this.state.handOne}
+                  scoreHand={onHandOneClick}
+                  winners={this.state.winners}
+                />
+                <Hand
+                  cards={this.state.community}
+                  isCommunity
+                  scoreHand={onResolveGame}
+                  winners={this.state.winners}
+                />
+                <Hand
+                  cards={this.state.handTwo}
+                  scoreHand={onHandTwoClick}
+                  winners={this.state.winners}
+                />
+              </header>
+            </div>
+          )}/>
+          <Route exact={true} path='/1' render={() => (
+            <div> hand one </div>
+          )}/>
+          <Route exact={true} path='/2' render={() => (
+            <div> hand two </div>
+          )}/>
+        </div>
+      </BrowserRouter>
     );
   }
 }
