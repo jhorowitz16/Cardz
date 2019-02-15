@@ -68,7 +68,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Route exact={true} path='/' render={() => (
+          <Route exact={true} path='/Cardz/' render={() => (
             <div className="App">
               <header className="App-header">
                 <Hand
@@ -91,7 +91,7 @@ class App extends Component {
               </header>
             </div>
           )}/>
-          <Route exact={true} path='/1' render={() => (
+          <Route exact={true} path='/Cardz/1' render={() => (
             <div> hand one
               <Hand
                 cards={this.state.handOne}
@@ -100,7 +100,7 @@ class App extends Component {
               />
             </div>
           )}/>
-          <Route exact={true} path='/2' render={() => (
+          <Route exact={true} path='/Cardz/2' render={() => (
             <div> hand two
               <Hand
                 cards={this.state.handTwo}
