@@ -9,11 +9,14 @@ class App extends Component {
 
   static propTypes = {
     cards: PropTypes.array,
+    hasScoreButton: PropTypes.boolean,
+    isCommunity: PropTypes.boolean,
     winners: PropTypes.array,
   };
 
   static defaultProps = {
     cards: [],
+    hasScoreButton: false,
     isCommunity: false,
     winners: [],
   }
@@ -22,11 +25,8 @@ class App extends Component {
     const winners = this.props.winners;
     return this.props.cards.map((card) => {
       const stringRep = card[0] + "," + valueToShortString(card[1]);
-      console.log(stringRep);
       const isWinner = winners.includes(stringRep);
-      if (isWinner) {
-        debugger;
-      }
+      console.log(isWinner);
       return (<Card isWinner={isWinner} suit={card[0]} value={card[1]}/>);
     });
   }
@@ -34,7 +34,9 @@ class App extends Component {
   // don't show the button on a community hand
   renderScoreButton() {
     const onScoreClick = this.props.scoreHand.bind(this);
-
+    if (!this.props.hasScoreButton) {
+      return null;
+    }
     if (!this.props.isCommunity) {
       return (<button className="hand__button--hand" onClick={onScoreClick}>Score</button>);
     } else {

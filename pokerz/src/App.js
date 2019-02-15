@@ -68,7 +68,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Route exact={true} path='/board' render={() => (
+          <Route exact={true} path='/' render={() => (
             <div className="App">
               <header className="App-header">
                 <Hand
@@ -78,6 +78,7 @@ class App extends Component {
                 />
                 <Hand
                   cards={this.state.community}
+                  hasScoreButton
                   isCommunity
                   scoreHand={onResolveGame}
                   winners={this.state.winners}
@@ -91,10 +92,22 @@ class App extends Component {
             </div>
           )}/>
           <Route exact={true} path='/1' render={() => (
-            <div> hand one </div>
+            <div> hand one
+              <Hand
+                cards={this.state.handOne}
+                scoreHand={onHandOneClick}
+                winners={this.state.winners}
+              />
+            </div>
           )}/>
           <Route exact={true} path='/2' render={() => (
-            <div> hand two </div>
+            <div> hand two
+              <Hand
+                cards={this.state.handTwo}
+                scoreHand={onHandTwoClick}
+                winners={this.state.winners}
+              />
+            </div>
           )}/>
         </div>
       </BrowserRouter>
