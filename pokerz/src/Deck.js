@@ -14,10 +14,8 @@ class Deck {
       }
     });
     this.cards = cards;
-    console.log("before shuffling: " + this.cards);
     this.shuffle();
     this.cards = cards;
-    console.log("after shuffling: " + this.cards);
   }
 
   shuffle() {
@@ -30,20 +28,13 @@ class Deck {
     this.cards = deck;
   }
 
-  /*
-  first cards for seed 1 should be:
-    d5,d9,c9,c14,s3,h10
-  */
-
   random() {
     const sinSeed = Math.sin(this.counterSeed++) * 10000;
     return sinSeed - Math.floor(sinSeed);
   }
 
   drawCard() {
-    const card = this.cards.pop();
-    console.log("dealt: " + card)
-    return card;
+    return this.cards.pop();
   }
 }
 
