@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/Cardz/static/media/ace_of_clubs.57e70271.png"
   },
   {
-    "revision": "b76addea66e34c7aae89",
+    "revision": "481dccd0e22114e4800e",
     "url": "/Cardz/static/css/main.5d8452d2.chunk.css"
   },
   {
@@ -80,8 +80,8 @@ self.__precacheManifest = [
     "url": "/Cardz/static/media/9_of_spades.9a051788.png"
   },
   {
-    "revision": "b76addea66e34c7aae89",
-    "url": "/Cardz/static/js/main.b76addea.chunk.js"
+    "revision": "481dccd0e22114e4800e",
+    "url": "/Cardz/static/js/main.481dccd0.chunk.js"
   },
   {
     "revision": "ce5bc5de8c7c718e2ae1698a9fe143a5",
@@ -156,7 +156,7 @@ self.__precacheManifest = [
     "url": "/Cardz/static/media/red_joker.d55a4ada.png"
   },
   {
-    "revision": "bf8ff8422299704b82c4d8be2b3f979f",
+    "revision": "46586533d949442af78a7e911a502956",
     "url": "/Cardz/index.html"
   }
 ];

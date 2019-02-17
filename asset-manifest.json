@@ -1,7 +1,7 @@
 {
   "main.css": "/Cardz/static/css/main.5d8452d2.chunk.css",
-  "main.js": "/Cardz/static/js/main.b76addea.chunk.js",
-  "main.js.map": "/Cardz/static/js/main.b76addea.chunk.js.map",
+  "main.js": "/Cardz/static/js/main.481dccd0.chunk.js",
+  "main.js.map": "/Cardz/static/js/main.481dccd0.chunk.js.map",
   "static/js/1.22eb8b44.chunk.js": "/Cardz/static/js/1.22eb8b44.chunk.js",
   "static/js/1.22eb8b44.chunk.js.map": "/Cardz/static/js/1.22eb8b44.chunk.js.map",
   "runtime~main.js": "/Cardz/static/js/runtime~main.f9313159.js",
@@ -43,6 +43,6 @@
   "static/media/red_joker.png": "/Cardz/static/media/red_joker.d55a4ada.png",
   "static/css/main.5d8452d2.chunk.css.map": "/Cardz/static/css/main.5d8452d2.chunk.css.map",
   "index.html": "/Cardz/index.html",
-  "precache-manifest.6dcb847a468ccad6bdd6235b8c2e1414.js": "/Cardz/precache-manifest.6dcb847a468ccad6bdd6235b8c2e1414.js",
+  "precache-manifest.2a659b9dbccf2f0cdfa7d39926e421f7.js": "/Cardz/precache-manifest.2a659b9dbccf2f0cdfa7d39926e421f7.js",
   "service-worker.js": "/Cardz/service-worker.js"
 }
