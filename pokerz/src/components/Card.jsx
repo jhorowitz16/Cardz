@@ -37,6 +37,7 @@ class Card extends Component {
   getCardImg() {
     const valueString = valueToString(this.props.value);
     const newFilename = valueString + "_of_" + charToSuit(this.props.suit) + ".png";
+    debugger;
     this.setState({
       filename: newFilename,
       image: window.AppState.cards[newFilename]

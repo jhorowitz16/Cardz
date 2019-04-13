@@ -39,6 +39,7 @@ class App extends Component {
       handOne: handOne,
       handTwo: handTwo,
       query: query,
+      seed: seed,
       winners: winners,
     };
   }
@@ -71,7 +72,7 @@ class App extends Component {
     const onHandTwoClick = this.scoreTwo.bind(this);
     return (
       <div className="App">
-        test new
+        { this.state.seed }
         <header className="App-header">
           <Hand
             cards={this.state.handOne}
@@ -128,7 +129,10 @@ class App extends Component {
   }
 
   render() {
-    window.AppState = {};
+    if (!window.AppState || !window.AppState.cards) {
+      window.AppState = {}
+      window.AppState.cards = importAll(require.context('./images/cards/', false, /\.(png|jpe?g|svg)$/));
+    }
     return (
       <div>
         { this.renderPlayerOne() }

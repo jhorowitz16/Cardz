@@ -8,12 +8,12 @@
 
 .card--winner {
   margin-top: -10px;
-  animation: winner-jump 3s;
+  animation: winner-jump 1s;
 }
 
 @keyframes winner-jump {
   from {margin-top: 0px;}
-  to {margin-top: -10px;}
+  to {margin-top: -15px;}
 }
 
 .card__front {
